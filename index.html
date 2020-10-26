@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>台灣疫情資訊網</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
+	<link rel="preload" href="img/home1.jpg" as="image">
+	<link rel="preload" href="img/home2.jpg" as="image">
+	<link rel="preload" href="img/home3.jpg" as="image">
+	<link rel="preload" href="img/home4.jpg" as="image">
+  </head>
+  <body>
+	  <div id="app">
+		  <div class="robot-container">
+			  <div class="msg-box">
+				 <div class="r-ansr">
+					<p>你想了解什麼?</p>
+				 </div>
+				<div class="p-qu"></div>
+			  </div>
+
+			  <div class="q-block">
+				<button class="btn" value="q1">疫情</button>
+				<button class="btn" value="q2">口罩</button>
+				<button class="btn" value="q3">疫苗</button>
+				<button class="btn" value="q4">入境出境</button>
+			  </div>
+		  </div>
+		  <div class="icon-bar">
+			  <i class="fas fa-robot robot"></i>
+			  <a href="#home">
+			  	<i class="fas fa-angle-double-up"></i>
+			  </a>
+		  </div>
+<!-------------------robot-->		  
+
+		  <nav id="menu">
+		  	<ul>
+		  		<li><a href="#home">首　　頁</a></li>
+		  		<li><a href="#about">關於疫情</a></li>
+				<li><a href="#news">最新報導</a></li>
+		  		<li><a href="#trend">防疫專區</a></li>
+		  		<li><a href="#question">常見問題</a></li>
+		  		<li><a href="#contact">官方資訊</a></li>
+		  	</ul>
+			  <i class="fas fa-bars"></i>
+		  </nav>
+<!---------------menu-------->
+		  
+		  <section id="home">
+			<div class="container_fluid h-100">
+				<div class="row h-100">
+					<div class="col-sm-3">
+						<div class="datetime">2020/10/26</div>
+					</div>
+					<div class="col-sm-6">
+						<a href="#about">
+							<div class="title-box">
+								<span></span>
+								<span></span>
+								<span></span>
+								<h1>台灣疫情資訊網</h1>
+								<table>
+									<thead>
+										<tr>
+											<th>瀏覽次數</th>
+											<th>資訊分享數</th>
+											<th>共同參與</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td><em class="people"></em></td>
+											<td><em class="share"></em></td>
+											<td><em class="join"></em></td>
+										</tr>
+									</tbody>
+								</table>
+								<i class="fas fa-angle-double-down"></i>
+							</div>
+						</a>
+					</div>
+					<div class="col-sm-3">
+						<div class="slogan">
+							<ul>	
+								<li>善用科技力量</li>
+								<li>建立正確防疫觀念</li>
+								<li>解決社會知識沙漠</li>
+								<li>台灣防疫由我做起</li>
+								<a href="#about">
+									<button class="btn btn-outline-light">read more</button>
+								</a>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		  </section>
+<!-------------------home----------------->		  
+	  
+	  	<section id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 ab-box">
+						<h3>關於疫情</h3>
+						<p>2019年12月起中國湖北武漢市發現不明原因肺炎群聚，疫情初期 個案多與武漢華南海鮮城活動史有關，中國官方於2020年1月9日公布其病原體為新型冠狀病毒。此疫情隨後迅速在中國其他省市與世界各地擴散，並證實可有效人傳人。</p>
+					</div>
+					<div class="col-sm-4 item-imgbx">
+						<img src="img/danger.jpg" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8 item">
+						<h3>{{about.title}}</h3>
+						<p>{{about.content}}</p>
+						<label>錯誤率{{about.text}}</label>
+						<progress max="100" :value="about.value"></progress>
+						<div class="img-group">
+							<img @click="aboutIndex = 0" src="img/news1.jpg" alt="">
+							<img @click="aboutIndex = 1" src="img/news2.jpg" alt="">
+							<img @click="aboutIndex = 2" src="img/news3.jpg" alt="">
+						</div>
+					</div>
+					
+					<div class="col-sm-4 timeline-box">
+						<div class="timeline">
+							<h4>防範不實訊息</h4>
+							<p>搜尋主流媒體報導</p>
+							<p><a target="_blank" href="https://tfc-taiwan.org.tw/">查詢政府機關網站</a></p>
+							<p>問查核中心或申訴</p>
+							<p>澄清不實訊息</p>
+						</div>
+					</div>
+				</div>
+			</div>  
+		</section>
+
+<!---------------about------------>
+		  
+		 <section id="news">
+		  	<div class="container_fluid">
+		  		<div class="container">
+					<div class="row select-block">
+						<div class="col-sm-4">
+							<i class="fas fa-bullhorn"></i><h4 @click="optionIndex = 1">疫情發展</h4>
+						</div>
+						<div class="col-sm-4">
+							<i class="fas fa-exclamation-triangle"></i></i><h4 @click="optionIndex = 2">疫情知識</h4>
+						</div>
+						<div class="col-sm-4">
+							<i class="fas fa-hand-holding-medical"></i><h4 @click="optionIndex = 3">防疫觀念</h4>
+						</div>
+					</div>
+					<div class="row option-block" v-if="optionIndex == '1'">
+						<button class="btn" @click="articleIndex = 0">來源</button>
+						<button class="btn" @click="articleIndex = 1">病毒命名</button>
+						<button class="btn" @click="articleIndex = 2">國內第一例確診</button>
+					</div>
+					<div class="row option-block" v-else-if="optionIndex == '2'">
+						<button class="btn" @click="articleIndex = 3">臨床表現</button>
+						<button class="btn" @click="articleIndex = 4">動物宿主</button>
+						<button class="btn" @click="articleIndex = 5">確診檢測</button>
+					</div>
+					<div class="row option-block" v-else-if="optionIndex == '3'">
+						<button class="btn" @click="articleIndex = 6">了解傳播途徑</button>
+						<button class="btn" @click="articleIndex = 7">疫苗</button>
+						<button class="btn" @click="articleIndex = 8">治療方式</button>
+					</div>
+				</div>
+		  		<div class="row article-container">
+					<div class="row h-100">
+						<div class="col-sm-4 article-imgbx">
+							<div class="decoration"></div>
+						  <img :src="article.image" alt="">
+						</div>
+						<div class="col-sm-5 main">
+							<h3>{{article.title}}</h3>
+							<p>{{article.content}}</p>
+							<p>取自: 疾病管制署</p>
+						</div>
+						<div class="col-sm-3 data">
+							<ul>
+								<h4>查看相關數據</h4>
+								<li data-toggle="modal" data-target="#chart1">台灣疫情分項統計</li>
+								<li data-toggle="modal" data-target="#chart2">COVID-19確診數</li>
+								<li data-toggle="modal" data-target="#chart3">COVID-19傳播途徑</li>
+								<li data-toggle="modal" data-target="#chart4">疫情發展時間線統整</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<a href="#news">
+					<div class="row block-container">
+						<div v-for="index in 2">
+							<div class="block" v-for="(imgUrl,index) in articles">
+								<img :src="imgUrl.image" alt="" @click="articleIndex = index">
+							</div>
+						</div>
+					</div>
+				</a>
+		  	</div>
+		  </section>
+		  
+<!-------------------news--------------->
+		  
+		  
+	    <section id="trend">
+		  	<div class="container h-100">
+		  		<div class="row trend-row pt-2">
+					<div class="trend-imgbx left">
+						<div class="trend-box img1" @click="infoIndex = 0"></div>
+						<h3>口罩資訊專區</h3>
+					</div>
+					<div class="trend-imgbx right">
+						<div class="trend-box" @click="infoIndex = 0">
+							<h4>口罩資訊專區</h4>
+							<p>需戴口罩三大時機：出入醫院時，有發燒或呼吸道症狀時，免疫力較差者。<a>......查看更多</a></p>
+						</div>
+					</div>
+				</div>
+		  		<div class="row trend-row">
+					<div class="trend-imgbx">
+						<div class="trend-box img2" @click="infoIndex = 1"></div>
+						<h3>衛生保健專區</h3>
+					</div>
+					
+					<div class="join-box">
+						<h4>{{info.title}}</h4>
+						<p>{{info.content}}</p>
+					</div>
+					
+					<div class="trend-imgbx">
+						<div class="trend-box" @click="infoIndex = 2">
+							<h4>防疫懶人包</h4>
+							<p>什麼是新冠狀病毒?人畜共通傳染病、SARS親戚(79%基因相似)、近似<a>......查看更多</a></p>
+						</div>
+					</div>
+				</div>
+		  		<div class="row trend-row pb-2">
+					<div class="trend-imgbx left">
+						<div class="trend-box img3" @click="infoIndex = 2"></div>
+						<h3>防疫懶人包</h3>
+					</div>
+					<div class="trend-imgbx right">
+						<div class="trend-box" @click="infoIndex = 1">
+							<h4>衛生保健專區</h4>
+							<p>在疫情延燒的時候，如何做好衛生保護自己?人多地方戴口罩、保持手部清潔 <a>......查看更多</a></p>
+						</div>
+					</div>
+				</div>
+		  	</div>
+		  </section>
+		  
+<!---------------trend------------>
+		  
+		  <div id="question">
+		  	<div class="container_fluid h-100">
+		  		<div class="row h-100 w-100">
+		  			<div class="col-sm-3" v-for="question in questions">
+						<div class="card">
+							<div class="front">
+								<i :class="[question.icon]"></i>
+								<h3>{{question.Q}}</h3>
+							</div>
+							<div class="backface">
+								<p>{{question.A}}</p>
+							</div>
+						</div>
+					</div>	
+		  		</div>
+		  	</div>
+		  </div>
+		  
+<!-----------------question---------------->
+		  
+	    <section id="contact">
+		  	<div class="official-info">
+				<h1>Contact Us</h1>
+				<ul>
+					<h4>官方資訊</h4>
+					<li><i class="fas fa-phone-alt"></i> 客服電話: (02)1234-5678</li>
+					<li><i class="fas fa-envelope"></i> 客服信箱: a001@gmail.com</li>
+					<li><i class="fas fa-headphones"></i> 客服ID: a001</li>
+				</ul>
+				<ul>
+					<h4>如有以下情形，請聯絡我們</h4>
+					<li>1. 頭痛</li>
+					<li>2. 嗅覺喪失</li>
+					<li>3. 鼻塞</li>
+					<li>4. 乏力</li>
+				</ul>
+				<ul>
+					<h4>追蹤最新消息</h4>
+					<li class="fans">
+						社群專頁
+						<i class="fab fa-facebook"></i>
+						<i class="fab fa-twitter"></i>
+						<i class="fab fa-instagram"></i>
+					</li>
+					<li>信箱 <input type="text" class="input-ebook">
+						<button class="btn btn-outline-light" @click="subscript">訂閱</button>
+					</li>
+					<li></li>
+				</ul>
+			</div>
+			  <form class="contact-form">
+					<h2>聯絡我們</h2>
+					<div class="form-group">
+						<label for="">姓名</label>
+						<input type="text">
+					</div>
+				  <div class="form-group">
+						<label for="">電話</label>
+						<input type="text">
+					</div>
+				  <div class="form-group">
+						<label for="">信箱</label>
+						<input type="text">
+				  </div>
+				  <div class="form-group">
+						<label for="">意見回饋</label>
+						<textarea rows="3"></textarea>
+				  </div>
+				   <div class="btn-group">
+						<button class="btn btn-outline-light" type="submit" @click.prevent="send">送出</button>
+						<button class="btn btn-outline-light" type="reset">清空</button>
+				  </div>
+				</form>
+		  </section>
+<!---------------contact------------->
+	  
+	  	<div class="modal fade" v-for="chart in charts" :id="[chart.id]">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-body chart">
+				  <img :src="chart.img" alt="">
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
