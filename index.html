@@ -92,9 +92,6 @@
 								<li>建立正確防疫觀念</li>
 								<li>解決社會知識沙漠</li>
 								<li>台灣防疫由我做起</li>
-								<a href="#about">
-									<button class="btn btn-outline-light">read more</button>
-								</a>
 							</ul>
 						</div>
 					</div>
@@ -129,11 +126,11 @@
 					
 					<div class="col-sm-4 timeline-box">
 						<div class="timeline">
-							<h4>防範不實訊息</h4>
+							<h4>舉報不實訊息步驟</h4>
 							<p>搜尋主流媒體報導</p>
 							<p><a target="_blank" href="https://tfc-taiwan.org.tw/">查詢政府機關網站</a></p>
 							<p>問查核中心或申訴</p>
-							<p>澄清不實訊息</p>
+							<p>舉報不實訊息</p>
 						</div>
 					</div>
 				</div>
@@ -208,53 +205,22 @@
 		  
 <!-------------------news--------------->
 		  
-		  
-	    <section id="trend">
-		  	<div class="container h-100">
-		  		<div class="row trend-row pt-2">
-					<div class="trend-imgbx left">
-						<div class="trend-box img1" @click="infoIndex = 0"></div>
-						<h3>口罩資訊專區</h3>
+	  <section id="trend">
+		  <div class="container h-100">
+		  	<div class="row h-100">
+				  <div class="trend-card" v-for="trend in trends">
+					<div class="trend-imgbox">
+						<img :src="trend.img" alt="">
 					</div>
-					<div class="trend-imgbx right">
-						<div class="trend-box" @click="infoIndex = 0">
-							<h4>口罩資訊專區</h4>
-							<p>需戴口罩三大時機：出入醫院時，有發燒或呼吸道症狀時，免疫力較差者。<a>......查看更多</a></p>
-						</div>
-					</div>
-				</div>
-		  		<div class="row trend-row">
-					<div class="trend-imgbx">
-						<div class="trend-box img2" @click="infoIndex = 1"></div>
-						<h3>衛生保健專區</h3>
-					</div>
-					
-					<div class="join-box">
-						<h4>{{info.title}}</h4>
-						<p>{{info.content}}</p>
-					</div>
-					
-					<div class="trend-imgbx">
-						<div class="trend-box" @click="infoIndex = 2">
-							<h4>防疫懶人包</h4>
-							<p>什麼是新冠狀病毒?人畜共通傳染病、SARS親戚(79%基因相似)、近似<a>......查看更多</a></p>
-						</div>
-					</div>
-				</div>
-		  		<div class="row trend-row pb-2">
-					<div class="trend-imgbx left">
-						<div class="trend-box img3" @click="infoIndex = 2"></div>
-						<h3>防疫懶人包</h3>
-					</div>
-					<div class="trend-imgbx right">
-						<div class="trend-box" @click="infoIndex = 1">
-							<h4>衛生保健專區</h4>
-							<p>在疫情延燒的時候，如何做好衛生保護自己?人多地方戴口罩、保持手部清潔 <a>......查看更多</a></p>
-						</div>
-					</div>
-				</div>
-		  	</div>
-		  </section>
+					  <div class="trend-txtbox">
+					  	<h3>{{trend.title}}</h3>
+						  <p>{{trend.content}}</p>
+						  <button class="btn btn-outline-dark" data-toggle="modal" data-target="#mask">口罩購買</button>
+					  </div> 
+				  </div>
+			</div>
+		  </div>
+	  </section>
 		  
 <!---------------trend------------>
 		  
@@ -289,10 +255,11 @@
 				</ul>
 				<ul>
 					<h4>如有以下情形，請聯絡我們</h4>
-					<li>1. 頭痛</li>
+					<li>1. 發燒</li>
+					<li>2. 頭痛</li>
 					<li>2. 嗅覺喪失</li>
-					<li>3. 鼻塞</li>
 					<li>4. 乏力</li>
+					<li>諮詢專線: 1922</li>
 				</ul>
 				<ul>
 					<h4>追蹤最新消息</h4>
@@ -346,8 +313,46 @@
 			</div>
 		  </div>
 		</div>
-	  </div>
 
+	  <div class="modal fade" id="mask">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header chart">
+					<img src="img/med01.jpg" alt="">
+				</div>
+			  <div class="modal-body">
+				  <ul>
+				  	<li>品名: 外科口罩</li>
+				  	<li>價格: 300元/盒</li>
+					<li>製造商: 國家口罩隊</li>
+					<li>作用: 阻隔飛沫及部分細菌、灰塵</li>
+					<li>適用對象、場所: 感冒或進出不通風場所</li>
+				  </ul>
+				  <form>
+					  付款方式:
+						<input type="radio" id="payment1" checked name="pay">
+					  	<label for="payment1">貨到付款</label>
+						<input type="radio" id="payment2" name="pay">
+					 	<label for="payment2">信用卡支付</label>
+						<input type="radio" id="payment3" name="pay">
+					  	<label for="payment3">第三方支付</label>
+				  </form>
+				  <div class="action-box">
+				  	<button class="btn round dec">-</button>
+					  <span class="num">0</span>
+					<button class="btn round inc">+</button>
+				  </div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-success">購買</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal">關閉</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  
+	  </div>
+	
 	  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-3.2.1.min.js"></script>
 
