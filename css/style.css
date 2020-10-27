@@ -14,7 +14,7 @@ html,body{
 :root{
 	--red: #E04646;
 	--blue: #D0E5F4;
-	--dark-blue: #85A0ED;
+	--dark-blue: #82B3CE;
 	--orange: #FF8040;
 	--green: #65CEBA;
 	--gray: #f4f4f4;
@@ -455,97 +455,56 @@ progress::-webkit-progress-value{
 	display: block;
 	color: #000
 }
-/*
 #trend{
-	background: var(--gray) url(../img/trend.png) center no-repeat;
+	background: url(../img/trend.png) center no-repeat;
 	background-size: cover;
-	background-attachment: fixed
 }
-*/
-.trend-row{
-	height: calc(100%/3);
+#trend .row{
 	display: flex;
 	justify-content: space-around;
-	align-items: center;
-	filter: drop-shadow(0 0 3px rgba(0,0,0,0.3))
+	padding: 50px 0;
 }
-.trend-row:nth-child(2){
-	flex-direction: row-reverse
+.trend-card{
+	position: relative;
+	width: calc(100%/4);
+	height: 350px;
+	box-shadow: 3px 3px 10px rgba(0,0,0,0.5)
 }
-.trend-box,.join-box{
+.trend-card:nth-child(2){
+	align-self: center
+}
+.trend-card:nth-child(3){
+	align-self: flex-end
+}
+.trend-imgbox,.trend-imgbox img{
+	width: 100%;
+	height: 100%;
+	transition: .5s
+}
+.trend-card:hover .trend-imgbox{
+	transform: translateX(-50%) rotateY(90deg);
+}
+.trend-txtbox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	font-size: 20px;
+	background: #fff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	text-align: center;
-	background: #fff;
+	transform: translateX(50%) rotateY(90deg);
+	transition: .5s
 }
-.trend-box{
-	width: 230px;
-	height: 230px;
-	clip-path: var(--shape1);
-	cursor: pointer;
+.trend-card:hover .trend-txtbox{
+	transform: translateX(0) rotateY(0deg);
 }
-.trend-box:hover a{
-	color: blue
-}
-.trend-box p{
-	padding: 15px;
-}
-.join-box{
-	width: 280px;
-	height: 280px;
-	border-radius: 50%;
-	transform: translateY(-10px);	
-	border: solid 10px var(--dark-blue);
-	padding: 20px;
-}
-.left{
-	transform: translateX(50%)
-}
-.right{
-	transform: translateX(-50%)
-}
-.trend-imgbx{
-	position: relative;
-}
-.trend-imgbx h3{
-	position: absolute;
-	bottom: 15%;
-	left: -10%;
-	background: var(--dark-blue);
-	font-weight: 900;
-	font-style: italic;
-	color: #fff
-}
-.img1{
-	background: url(../img/item9.jpg) center no-repeat;
-	background-size: cover
-}
-.img2{
-	background: url(../img/news1.jpg) center no-repeat;
-	background-size: cover
-}
-.img3{
-	background: url(../img/news2.jpg) center no-repeat;
-	background-size: cover
-}
-.img1 ~ h3{
-	background: var(--green)
-}
-.img2 ~ h3{
-	background: var(--orange)
-}
-.img3 ~ h3{
-	background: var(--dark-blue)
-}
-@keyframes jump{
-	50%{
-		transform: scale(1.1)
-	}
-}
-.jump{
-	animation: jump .3s ease-in
+.trend-txtbox h3{
+	font-weight: bold
 }
 #question{
 	width: 100%;
@@ -752,11 +711,25 @@ progress::-webkit-progress-value{
   	background: var(--green);
 	color: #fff
 }
-.modal-content{
-	width: 600px
+.chart{
+	width: 100%
 }
-@media (max-width: 700px){
-	section,.article-container,.trend-row{
+#mask img{
+	width: 80%
+}
+#mask li{
+	font-size: 20px;
+}
+.round{
+	border-radius: 50%
+}
+@media (max-width: 991px){
+	.trend-card{
+		width: calc(100%/3.3)
+	}
+}
+@media (max-width: 768px){
+	section,.article-container{
 		height: 100%;
 	}
 	#home{
@@ -781,12 +754,13 @@ progress::-webkit-progress-value{
 	.main{
 		padding: 20px 50px;
 	}
-	.trend-box{
+	#trend .row{
+		display: block;
+	}
+	.trend-card{
+		width: 70%;
 		margin: auto
 	}
-	.left,.right{
-		transform: translateX(0)
-	}	
 	#contact{
 		flex-direction: column;
 	}
