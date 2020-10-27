@@ -4,12 +4,6 @@ $(function(){
 	$('.img-group img').click(function(){
 		$(this).addClass('img-active').siblings().removeClass();
 	})
-	$('.trend-imgbx').click(function(){
-		$('.join-box').addClass('jump');
-		setTimeout(() => {
-			$('.join-box').removeClass('jump');
-		},1000);
-	})
 	var startVal = [12700,200,2700];
 	var timer1 = setInterval(() =>{
 		startVal[0]++
@@ -31,7 +25,15 @@ $(function(){
 		if(startVal[2]>=3000){
 			clearInterval(timer3)
 		}
+	});
+	
+	var num = 0;
+	$('.inc').click(function(){
+		num+=1	
+		
 	})
+	console.log(num)
+	
 	$('.robot').click(function(){
 		$('.robot-container').toggleClass('open')
 	});

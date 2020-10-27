@@ -88,20 +88,23 @@ var vm = new Vue({
 			{
 				img: 'img/chart4.png',
 				id: 'chart4',
-			}
+			},
 		],
-		information: [
+		trends: [
 			{
 				title: '口罩資訊專區',
 				content: '需戴口罩三大時機：出入醫院時，有發燒或呼吸道症狀時，免疫力較差者。口罩照分為以下幾種: 布口罩、一般口罩、外科口罩、活性碳口罩、N95口罩。',
+				img: 'img/people03.jpg',
 			},
 			{
 				title: '衛生保健專區',
 				content: '在疫情延燒的時候，如何做好衛生保護自己?人多地方戴口罩、保持手部清潔、定期量體溫、保持社交距離、定期清消環境。',
+				img: 'img/news1.jpg'
 			},
 			{
 				title: '防疫懶人包',
 				content: '什麼是新冠狀病毒?人畜共通傳染病、SARS親戚(79%基因相似)、近似蝙蝠冠狀病毒。怎麼傳?有限度人傳人，近距離、長時間親密接觸。',
+				img: 'img/item6.jpg'
 			},
 		],
 		questions: [
@@ -124,7 +127,7 @@ var vm = new Vue({
 				Q: '新型冠狀病毒的潛伏期是多久?',
 				A: '潛伏期是從暴露病毒至可能發病的這段觀察時間，依據世界衛生組織與中國大陸官方資訊，2019新型冠狀病毒感染之潛伏期為2至12天（平均7天）。',
 				icon: 'fas fa-viruses'
-			}
+			},
 		],
 		aboutIndex: 0,
 		infoIndex: 0,
@@ -137,7 +140,7 @@ var vm = new Vue({
 		},
 		subscript(){
 			alert('成功訂閱')
-		}
+		},
 	},
 	computed: {
 		about(){
@@ -148,6 +151,6 @@ var vm = new Vue({
 		},
 		article(){
 			return this.articles[this.articleIndex]
-		}
+		},
 	}
 })
